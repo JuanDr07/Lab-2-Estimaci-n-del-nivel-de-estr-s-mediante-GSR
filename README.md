@@ -130,11 +130,15 @@ Flujo de trabajo:
    - Derivada o pasa-altas suave para resaltar SCR
 4. Cálculo del nivel (bajo/medio/alto) por ventanas temporales.
 
-## 12. Resultados esperados y evidencias a incluir
+## 12. Resultados
 - Señal en reposo (baseline).
+
 - Respuesta durante inspiración profunda (SCR visible).
+  
 - Señal con movimiento (artefactos y estabilidad del montaje).
+  
 - Señal durante tarea cognitiva (variación de SCL y/o aumento de SCR).
+  
 - Señal del nivel de estrés (bajo/medio/alto) versus tiempo.
 
 ## 13. Análisis

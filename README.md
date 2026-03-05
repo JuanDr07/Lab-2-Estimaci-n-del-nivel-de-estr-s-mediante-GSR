@@ -37,7 +37,7 @@ Implementar un sistema continuo de medición de GSR para estimar el nivel de est
 - ESP32 (ADC1 para adquisición)
 - 2 electrodos metálicos (monedas)
 - Resistencia: 100 kΩ
-- Capacitor: 0.5 nF
+- Capacitor: 5 µF
 - Cables, protoboard o montaje equivalente
 - Elementos de sujeción (cinta/velcro/elástico)
 
@@ -60,20 +60,20 @@ El sistema se basa en un divisor resistivo donde los cambios de \(R_{skin}\) mod
 
 Esquema conceptual:
 - 3.3 V → R (100 kΩ) → nodo (ADC1) → R_skin (piel entre electrodos) → GND
-- C (0.5 nF) desde el nodo (ADC1) a GND
+- C (5 µF) desde el nodo (ADC1) a GND
 
 ### 6.2 Comportamiento del filtro RC
-Con \(R = 100\,\text{k}\Omega\) y \(C = 0.5\,\text{nF}\):
+Con \(R = 100\,\text{k}\Omega\) y \(C = 5\,\mu\text{F}\) \(\left(=5\times10^{-6}\,\text{F}\right)\):
 
 $$
-\tau = R\,C = (100\,000)\,(0.5\times10^{-9}) = 5\times10^{-5}\,\text{s} = 50\,\mu\text{s}
+\tau = R\,C = (100\,000)\,(5\times10^{-6}) = 5\times10^{-1}\,\text{s} = 0.5\,\text{s}
 $$
 
 $$
-f_c = \frac{1}{2\pi \tau} \approx \frac{1}{2\pi(5\times10^{-5})} \approx 3183\,\text{Hz}
+f_c = \frac{1}{2\pi \tau} \approx \frac{1}{2\pi(0.5)} \approx 0.318\,\text{Hz}
 $$
 
-Con estos valores, el capacitor actúa principalmente como supresión de ruido de alta frecuencia (EMI), sin atenuar de forma significativa la banda lenta típica de GSR. La separación SCL/SCR puede realizarse adicionalmente mediante filtrado digital en MATLAB (promedio móvil o filtro pasa-bajas de baja frecuencia).
+Con estos valores, el capacitor implementa un **filtro pasa-bajas** que ayuda a suavizar ruido y variaciones rápidas, dejando principalmente la componente lenta típica de GSR (SCL). La separación SCL/SCR puede realizarse adicionalmente mediante filtrado digital en MATLAB (promedio móvil o filtros pasa-bajas/pasa-altas suaves).
 
 ## 7. Región anatómica y colocación de electrodos
 Se utilizaron dedos (falanges distales) por su buena respuesta electrodérmica y facilidad de montaje. Para reducir artefactos:

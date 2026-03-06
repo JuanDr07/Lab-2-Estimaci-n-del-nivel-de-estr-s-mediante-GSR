@@ -469,7 +469,17 @@ Se logró desarrollar una propuesta funcional de biosensor vestible para la medi
 La GSR resultó ser una variable útil para comparar estados del mismo sujeto bajo distintas condiciones experimentales; sin embargo, también se evidenció que no es un marcador específico de estrés y que su interpretación depende del contexto, de la calidad del montaje y del procesamiento aplicado. En consecuencia, la fiabilidad del sistema es adecuada para fines académicos, demostrativos y de monitoreo relativo, pero debe entenderse con cautela cuando se pretende extrapolar a aplicaciones clínicas o diagnósticas.
 
 ## 13. Referencias
-- Boucsein, W. Electrodermal Activity. Springer, 2012.
-- Figner, B., & Murphy, R. O. (2011). Using Skin Conductance in Judgment and Decision Making Research. En A Handbook of Process Tracing Methods for Decision Research.
-- Loggia, M. L., Juneau, M., & Bushnell, C. M. (2011). Autonomic responses and pain/activation relationships. Pain, 152(3), 592–598.
-- Breimhorst, M. et al. (2011). Electrodermal measures and stress-related responses. The Journal of Pain, 12(1), 61–70.
+
+Boucsein, W. (2012). Electrodermal activity (2nd ed.). Springer.
+
+Figner, B., & Murphy, R. O. (2011). Using skin conductance in judgment and decision making research. In M. Schulte-Mecklenbeck, A. Kuehberger, & R. Ranyard (Eds.), A handbook of process tracing methods for decision research: A critical review and user’s guide (pp. 163–184). Psychology Press.
+
+Loggia, M. L., Juneau, M., & Bushnell, M. C. (2011). Autonomic responses to heat pain: Heart rate, skin conductance, and their relation to verbal ratings and stimulus intensity. Pain, 152(3), 592–598.
+
+Breimhorst, M., Hondronikos, A. P., Elser, F., & Birklein, F. (2011). Cortical correlates of the autonomic effects of noxious stimulation in healthy man: An EEG study. The Journal of Pain, 12(1), 61–71.
+
+Boucsein, W., Fowles, D. C., Grimnes, S., Ben-Shakhar, G., Roth, W. T., Dawson, M. E., & Filion, D. L. (2012). Publication recommendations for electrodermal measurements. Psychophysiology, 49(8), 1017–1034.
+
+Dawson, M. E., Schell, A. M., & Filion, D. L. (2007). The electrodermal system. In J. T. Cacioppo, L. G. Tassinary, & G. G. Berntson (Eds.), Handbook of psychophysiology (3rd ed., pp. 159–181). Cambridge University Press.
+
+Braithwaite, J. J., Watson, D. G., Jones, R., & Rowe, M. (2013). A guide for analysing electrodermal activity (EDA) and skin conductance responses (SCRs) for psychological experiments. University of Birmingham.

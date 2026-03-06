@@ -435,17 +435,20 @@ Los umbrales definidos fueron: menor o igual a 2000 para estrés moderado y 2500
 ## 9. Resultados
 
 - Señal en reposo (baseline).
-<img width="907" height="732" alt="image" src="https://github.com/user-attachments/assets/1609355c-6181-42ee-b67f-e54820167a33" />
+<img width="907" height="200" alt="image" src="https://github.com/user-attachments/assets/1609355c-6181-42ee-b67f-e54820167a33" />
 Imagen 2.
 - Respuesta durante inspiración profunda (SCR visible).
   <img width="408" height="200" alt="image" src="https://github.com/user-attachments/assets/cfb4ed44-3085-4a02-9af7-dd59c4b8875e" />
+  
 Imagen 3.
+
 ## 10. Análisis
 
 ## 10.1 Eficacia del sistema para monitoreo ambulatorio
 En oficinas, aulas universitarias y el hogar, un sistema de monitoreo basado en GSR puede ser útil como indicador complementario del nivel de activación autonómica, debido a su bajo costo, carácter no invasivo y relativa facilidad de integración con dispositivos embebidos. El vestible desarrollado permite capturar cambios fisiológicos en tiempo real y transmitirlos a una interfaz computacional, lo cual abre la posibilidad de usarlo en contextos de seguimiento, biofeedback o experimentación controlada. Sin embargo, su eficacia depende críticamente de la calidad del contacto electrodo-piel, de la reducción de artefactos por movimiento y de una correcta calibración por sujeto. En condiciones dinámicas o poco controladas, la confiabilidad disminuye si el sistema se usa como único indicador.
 
 ## 10.2 Alcance y limitaciones para estrés neonatal
+
 La extrapolación del sistema desarrollado a la detección de estrés neonatal presenta limitaciones importantes. En primer lugar, la piel del recién nacido posee propiedades electrofisiológicas y biomecánicas distintas a las de un adulto, por lo que los materiales, la presión de contacto y la corriente aplicada deben reevaluarse cuidadosamente. En segundo lugar, los neonatos muestran gran sensibilidad a cambios térmicos, manejo clínico y movimientos involuntarios, factores que pueden modificar la señal y dificultar su interpretación. Por tanto, aunque el principio de medición autonómica es relevante desde el punto de vista fisiológico, un sistema como el construido en esta práctica no puede trasladarse directamente al ámbito neonatal sin rediseño del hardware, validación ética, materiales clínicamente aprobados y comparación con otros indicadores fisiológicos.
 
 ## 11. Preguntas propuestas
@@ -453,7 +456,7 @@ La extrapolación del sistema desarrollado a la detección de estrés neonatal p
 ### 11.1 ¿Por qué una inspiración profunda incrementa la GSR?
 Una inspiración profunda puede producir una activación autonómica transitoria asociada a cambios en el balance simpático-parasimpático y en la actividad de las glándulas sudoríparas. Como resultado, aumenta la conductancia eléctrica de la piel y aparece una respuesta transitoria tipo SCR. En la práctica, esto se observa como un cambio brusco respecto al nivel basal, seguido de una recuperación más lenta.
 
-## 1.2 Ventajas y desventajas de la GSR como indicador de estrés
+## 11.2 Ventajas y desventajas de la GSR como indicador de estrés
 Entre las ventajas se encuentran su carácter no invasivo, bajo costo, sensibilidad a cambios de activación simpática y facilidad de instrumentación. Además, permite realizar comparaciones claras entre estados como reposo y carga mental. Entre las desventajas destacan su baja especificidad, ya que la señal también responde a temperatura, dolor, movimiento o cambios en el contacto de los electrodos; la necesidad de calibración individual; y la imposibilidad de utilizarla por sí sola como herramienta diagnóstica concluyente.
 
 ## 12. Conclusiones

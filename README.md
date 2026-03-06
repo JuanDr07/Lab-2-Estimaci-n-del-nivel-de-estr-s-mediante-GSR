@@ -8,14 +8,18 @@ Este repositorio desarrolla el Laboratorio 2, cuyo objetivo fue diseñar e imple
 - María Paula Fernández
 
 ## 1. Introducción
+
 La actividad electrodérmica (EDA, por sus siglas en inglés) agrupa los fenómenos eléctricos asociados a la piel, especialmente las variaciones en su conductancia originadas por la actividad de las glándulas sudoríparas y la modulación del sistema nervioso simpático. Dentro de este contexto, la respuesta galvánica cutánea (GSR) es una de las variables fisiológicas más utilizadas para evaluar cambios de activación autonómica frente a estímulos emocionales, cognitivos o sensoriales. Por su naturaleza no invasiva, facilidad de instrumentación y sensibilidad a cambios fisiológicos, la GSR es ampliamente empleada en ingeniería biomédica, psicofisiología y estudios de interacción humano-máquina.
 La guía de laboratorio establece que el estudiante debe construir un dispositivo vestible capaz de capturar variaciones de la GSR y utilizarlo para el monitoreo del estrés durante la resolución de tareas cognitivas. De igual manera, solicita identificar la componente estacionaria o basal y la componente transitoria de la señal, justificar el diseño eléctrico, garantizar la seguridad del usuario y documentar las limitaciones del sistema. En ese marco, el presente informe organiza y consolida la implementación realizada por el grupo, integrando los fundamentos fisiológicos, el diseño del circuito, el procedimiento experimental, el análisis de la señal y la discusión técnica de los resultados.
 
 ## 2. Fundamento teórico (EDA / GSR)
 
-2.1 Actividad electrodérmica y respuesta galvánica cutánea
+## 2.1 Actividad electrodérmica y respuesta galvánica cutánea
+
 La EDA describe los cambios eléctricos de la piel relacionados con la activación simpática. Cuando una persona experimenta un estímulo interno o externo, aumenta la actividad de las glándulas sudoríparas ecrinas, principalmente en palmas y dedos, lo que incrementa la conductancia cutánea. En la literatura se distinguen dos componentes de interés. La primera es la SCL (Skin Conductance Level), correspondiente al nivel tónico o basal de la señal y asociada al estado general de activación. La segunda es la SCR (Skin Conductance Response), que representa respuestas fásicas o transitorias, caracterizadas por ascensos relativamente rápidos seguidos de una recuperación más lenta.
-2.2 Relación entre GSR y estrés
+
+## 2.2 Relación entre GSR y estrés
+
 Aunque la GSR no constituye por sí sola una medida específica de “estrés”, sí es un marcador sensible de activación simpática. Por ello, en condiciones controladas permite comparar estados como reposo, carga mental, verbalización o respuesta a estímulos fisiológicos, por ejemplo, una inspiración profunda. Su principal fortaleza radica en que cambios pequeños en la activación autonómica producen modificaciones detectables en la conductancia de la piel. Su principal limitación es que numerosos factores no emocionales también influyen sobre la señal, entre ellos el movimiento, la presión de los electrodos, la temperatura ambiente, la hidratación cutánea y la variabilidad intersujeto.
 
 
@@ -42,9 +46,12 @@ Implementar un sistema continuo de medición de GSR para estimar el nivel de est
 - Elementos de sujeción (cinta Micropore /velcro/elástico)
 
 ### 4.2 Software
+
 - MATLAB (lectura del flujo de datos, graficación y análisis)
-- Arduino IDE 
+- Arduino IDE
+  
 ## 5 Diseño del sistema y acondicionamiento de la señal
+
 ## 5.1 Criterio de seguridad eléctrica
 La guía exige demostrar que, aun en el peor caso, la corriente a través del sujeto no excede 1 mA. 
 La seguridad se evalúa con el caso extremo de resistencia de piel cercana a 0 Ω, donde la corriente máxima queda limitada por la resistencia serie:
@@ -56,7 +63,10 @@ $$
 Este valor es inferior a 1 mA, cumpliendo el criterio de seguridad planteado para el laboratorio.
 
 ### 5.2 Conversión de resistencia de piel a voltaje
-El circuito se implementó como un divisor resistivo: 3.3 V → R fija (100 kΩ) → nodo de medición (ADC) → Rskin → GND. Adicionalmente, se conectó un capacitor de 5 µF entre el nodo de medición y tierra para suavizar variaciones rápidas. Bajo esta configuración, el voltaje leído por el ADC está dado por Vadc = Vcc · Rskin / (R + Rskin). Por tanto, la resistencia equivalente de la piel puede estimarse como Rskin = R · Vadc / (Vcc − Vadc), y la conductancia como Gskin = 1 / Rskin = (Vcc − Vadc) / (R · Vadc).
+
+El circuito se implementó como un divisor resistivo: 3.3 V → R fija (100 kΩ) → nodo de medición (ADC) → Rskin → GND.
+Adicionalmente, se conectó un capacitor de 5 µF entre el nodo de medición y tierra para suavizar variaciones rápidas. Bajo esta configuración, el voltaje leído por el ADC está dado por Vadc = Vcc · Rskin / (R + Rskin). 
+Por tanto, la resistencia equivalente de la piel puede estimarse como Rskin = R · Vadc / (Vcc − Vadc), y la conductancia como Gskin = 1 / Rskin = (Vcc − Vadc) / (R · Vadc).
 Esta relación es importante porque, en la topología utilizada, un aumento de la conductancia cutánea implica una disminución de Rskin y, en consecuencia, una disminución del voltaje medido en el ADC. Por ello, si el análisis se realiza directamente con voltaje, debe aclararse que la señal es inversamente proporcional a la conductancia. Para una interpretación fisiológica más rigurosa, se recomienda transformar el voltaje a conductancia estimada antes de aplicar la clasificación del nivel de estrés.
 
 Esquema conceptual:
@@ -64,7 +74,6 @@ Esquema conceptual:
 - C (5 µF) desde el nodo (ADC1) a GND
 
 ### 6.2 Comportamiento del filtro RC
-Con \(R = 100\,\text{k}\Omega\) y \(C = 5\,\mu\text{F}\) \(\left(=5\times10^{-6}\,\text{F}\right)\):
 
 $$
 \tau = R\,C = (100\,000)\,(5\times10^{-6}) = 5\times10^{-1}\,\text{s} = 0.5\,\text{s}
@@ -76,7 +85,7 @@ $$
 
 Con estos valores, el capacitor implementa un **filtro pasa-bajas** que ayuda a suavizar ruido y variaciones rápidas, dejando principalmente la componente lenta típica de GSR (SCL). La separación SCL/SCR puede realizarse adicionalmente mediante filtrado digital en MATLAB (promedio móvil o filtros pasa-bajas/pasa-altas suaves).
 
-### 6.4 Selección anatómica y fijación de electrodos 
+### 6.3 Selección anatómica y fijación de electrodos 
 
 Se eligieron los dedos como región anatómica de medición debido a su alta densidad de glándulas sudoríparas y su respuesta electrodérmica pronunciada. La fijación se realizó procurando una presión uniforme, sin comprimir excesivamente el tejido, y asegurando que el contacto eléctrico se mantuviera estable. También se redujo el movimiento relativo entre cables y electrodos para disminuir artefactos mecánicos durante la adquisición.
 
@@ -95,9 +104,15 @@ Se utilizaron dedos (falanges distales) por su buena respuesta electrodérmica y
 ## 7.3. Adquisición de datos
 Con el sistema ensamblado, que se observa en la imagen 1:
 <img width="517" height="693" alt="image" src="https://github.com/user-attachments/assets/a356a539-c040-41e7-9cee-b181e16cdfbe" />
+
+Imagen 1.
+
 Se adquirió la señal GSR en tiempo real mientras el sujeto permanecía en reposo. Después se realizó una maniobra de inspiración profunda seguida de exhalación lenta, buscando generar una respuesta transitoria visible. También se registró la señal durante movimiento, escritura o caminata para evaluar la estabilidad del vestible y reconocer la aparición de artefactos. Con base en la señal basal y en la respuesta obtenida durante la maniobra respiratoria, se propuso un esquema de umbrales para clasificar el nivel de activación.
+
 ## 8.Configuración del sistema
+
 ### 8.1 Configuración de muestreo
+
 - ADC: ADC1 del ESP32
 - Frecuencia de muestreo: 50 Hz
 - Transmisión: inalámbrica hacia MATLAB por medio de ARDUINO IDE con el siguiente código:
@@ -418,6 +433,7 @@ stress_label= stress_label(1:k);
 Los umbrales definidos fueron: menor o igual a 2000 para estrés moderado y 2500 para estrés alto.
 
 ## 9. Resultados
+
 - Señal en reposo (baseline).
 <img width="907" height="732" alt="image" src="https://github.com/user-attachments/assets/1609355c-6181-42ee-b67f-e54820167a33" />
 Imagen 2.

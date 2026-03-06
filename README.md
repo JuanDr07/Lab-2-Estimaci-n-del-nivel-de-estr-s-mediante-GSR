@@ -435,11 +435,13 @@ Los umbrales definidos fueron: menor o igual a 2000 para estrés moderado y 2500
 ## 9. Resultados
 
 - Señal en reposo (baseline).
+  
 <img width="408" height="200" alt="image" src="https://github.com/user-attachments/assets/1609355c-6181-42ee-b67f-e54820167a33" />
 
 Imagen 2.
 
 - Respuesta durante inspiración profunda (SCR visible).
+  
   <img width="408" height="200" alt="image" src="https://github.com/user-attachments/assets/cfb4ed44-3085-4a02-9af7-dd59c4b8875e" />
   
 Imagen 3.
